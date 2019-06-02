@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "C:/Users/Phoenix/Documents/CodeBlocks/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/gcc.exe",
+            "args": [ 
+                "-g", "-Wall", "-std=c++11", "*.c", "-o", "${workspaceFolderBasename}.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "dependsOn": "build",
+            "command": "cmd.exe /c start ${workspaceRoot}/${workspaceFolderBasename}.exe",
+            "presentation": {
+                "focus": true,
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+        }
+    ]
+}
